@@ -14,6 +14,10 @@ _LIBC_ARCH_COMMON_SRC_FILES := \
     arch-arm/bionic/_setjmp.S \
     arch-arm/bionic/setjmp.S \
     arch-arm/bionic/sigsetjmp.S \
+    arch-arm/bionic/strlcat.S \
+    arch-arm/bionic/strncmp.S \
+    arch-arm/bionic/strncat.S \
+    arch-arm/bionic/strnlen.S \
     arch-arm/bionic/syscall.S \
     arch-arm/bionic/tgkill.S \
     arch-arm/bionic/tkill.S \
@@ -38,7 +42,7 @@ libc_common_src_files := \
     $(filter-out $(_LIBC_FORTIFY_FILES_TO_REMOVE),$(libc_common_src_files))
 
 ifeq ($(strip $(wildcard bionic/libc/arch-arm/$(TARGET_CPU_VARIANT)/$(TARGET_CPU_VARIANT).mk)),)
-$(error "TARGET_CPU_VARIANT not set or set to an unknown value. Possible values are cortex-a5, cortex-a7, cortex-a8, cortex-a9, cortex-a15, krait, scorpion. Use generic for devices that do not have a CPU similar to any of the supported cpu variants.")
+$(error "TARGET_CPU_VARIANT not set or set to an unknown value. Possible values are cortex-a5, cortex-a7, cortex-a8, cortex-a9, cortex-a15, krait, scorpion, tegra2. Use generic for devices that do not have a CPU similar to any of the supported cpu variants.")
 endif
 
 include bionic/libc/arch-arm/$(TARGET_CPU_VARIANT)/$(TARGET_CPU_VARIANT).mk
